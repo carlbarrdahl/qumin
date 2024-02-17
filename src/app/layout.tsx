@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const repoURL = "https://github.com/carlbarrdahl/qumin";
+const repoURL = "https://github.com/carlbarrdahl/qumin";
 
 export default function RootLayout({
   children,
