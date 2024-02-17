@@ -20,7 +20,6 @@ export default async function TicketPage({
         <StatLabel>Plats i kö</StatLabel>
         <div className="flex items-end justify-center gap-2">
           <span className="text-7xl font-semibold">3</span>
-          {/* <span className="text-xl"> / 19</span> */}
         </div>
       </Stat>
     </div>
@@ -31,8 +30,4 @@ const Stat = createComponent("div", tv({ base: "border rounded p-8 flex-1" }));
 const StatLabel = createComponent(
   "div",
   tv({ base: "text-center uppercase text-sm tracking-wider" }),
-);
-const StatValue = createComponent(
-  "div",
-  tv({ base: "text-4xl font-bold text-center" }),
 );

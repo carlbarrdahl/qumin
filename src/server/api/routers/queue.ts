@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { TRPCError } from "@trpc/server";
+import type { PrismaClient } from "@prisma/client";
 
 import {
   createTRPCRouter,
@@ -9,8 +11,6 @@ import {
   ZQueueCreateInputSchema,
   ZQueueEnterInputSchema,
 } from "./queue/queue.schema";
-import { TRPCError } from "@trpc/server";
-import { PrismaClient } from "@prisma/client";
 
 async function verifyOwnsQueue(
   { queueId = "", userId = "" },
@@ -38,6 +38,23 @@ export const queueRouter = createTRPCRouter({
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input: { id } }) => {
       return ctx.db.ticket.findFirst({ where: { id } });
+    }),
+
+  position: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input: { id } }) => {
+      const ticket = await ctx.db.ticket.findFirst({ where: { id } });
+      if (!ticket) {
+        return null;
+      }
+      const count = await ctx.db.ticket.findMany({
+        where: { queueId: ticket?.queueId, status: { not: "done" } },
+        orderBy: { createdAt: "desc" },
+      });
+
+      return {
+        position: count.length,
+      };
     }),
 
   tickets: protectedProcedure

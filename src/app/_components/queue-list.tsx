@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ExternalLink, LinkIcon, QrCode, UsersIcon } from "lucide-react";
+import { ExternalLink, QrCode, UsersIcon } from "lucide-react";
 import type { Queue } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { Button } from "./ui/button";
@@ -46,7 +46,6 @@ function QueueItem({ id, name }: Queue) {
           href={`/queue/${id}/qr`}
           target="_blank"
         />
-        {/* <Button icon={LinkIcon} /> */}
       </div>
     </div>
   );
