@@ -1,12 +1,8 @@
-import { Ticket } from "@prisma/client";
 import { format } from "date-fns/format";
-import { Check } from "lucide-react";
 import { notFound } from "next/navigation";
 import { NextTicket } from "~/app/_components/next-ticket";
 import { PageSection } from "~/app/_components/page-section";
 import { QueueNavigation } from "~/app/_components/queue-nav";
-import { TicketsTable } from "~/app/_components/tickets-table";
-import { Button } from "~/app/_components/ui/button";
 import { Table, Td, Th, Tr } from "~/app/_components/ui/table";
 import { api } from "~/trpc/server";
 import { cn } from "~/utils/cn";
