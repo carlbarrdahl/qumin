@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { tv } from "tailwind-variants";
+import { QueuePosition } from "~/app/_components/queue-position";
 import { createComponent } from "~/app/_components/ui";
 
 import { api } from "~/trpc/server";
@@ -19,7 +20,9 @@ export default async function TicketPage({
       <Stat>
         <StatLabel>Plats i kö</StatLabel>
         <div className="flex items-end justify-center gap-2">
-          <span className="text-7xl font-semibold">3</span>
+          <span className="text-7xl font-semibold">
+            <QueuePosition ticketId={ticketId} />
+          </span>
         </div>
       </Stat>
     </div>
