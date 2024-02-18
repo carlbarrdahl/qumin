@@ -15,7 +15,7 @@ const inter = Fredoka({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://qumin.vercel.app"),
+  metadataBase: new URL("https://qumin.app"),
   title: "Qumin",
   description: "Digital queueing simplified",
   applicationName: "Qumin",
