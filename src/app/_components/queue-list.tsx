@@ -43,7 +43,7 @@ function QueueItem({ id, name }: Queue) {
         <Button
           icon={QrCode}
           as={Link}
-          href={`/queue/${id}/qr`}
+          href={`/queue/${id}/opengraph-image`}
           target="_blank"
         />
       </div>
