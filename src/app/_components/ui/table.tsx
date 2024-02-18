@@ -10,5 +10,11 @@ export const Th = createComponent(
   tv({ base: "text-left text-gray-500 font-normal p-4" }),
 );
 
-export const Td = createComponent("td", tv({ base: "p-4" }));
-export const Tr = createComponent("tr", tv({ base: "border-b" }));
+export const Td = createComponent(
+  "td",
+  tv({ base: "p-1 sm:p-4 block sm:table-cell text-sm sm:text-base" }),
+);
+export const Tr = createComponent(
+  "tr",
+  tv({ base: "border-b block sm:table-row" }),
+);

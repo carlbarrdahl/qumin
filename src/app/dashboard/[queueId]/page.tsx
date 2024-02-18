@@ -2,7 +2,6 @@ import { format } from "date-fns/format";
 import { notFound } from "next/navigation";
 import { NextTicket } from "~/app/_components/next-ticket";
 import { PageSection } from "~/app/_components/page-section";
-import { QueueNavigation } from "~/app/_components/queue-nav";
 import { Table, Td, Th, Tr } from "~/app/_components/ui/table";
 import { api } from "~/trpc/server";
 import { cn } from "~/utils/cn";
@@ -23,13 +22,13 @@ export default async function DashboardQueuePage({
     <PageSection
       title={queue.name}
       description="Här visas alla biljetter och dess köordning. Tryck på nästa för att flytta din kö framåt."
-      action={<NextTicket queueId={queueId} />}
     >
-      <QueueNavigation queueId={queueId} />
-
+      <div className="flex justify-end">
+        <NextTicket queueId={queueId} />
+      </div>
       <div className="w-full table-fixed rounded-lg border">
         <Table>
-          <thead>
+          <thead className="hidden sm:table-header-group">
             <Tr>
               <Th className={"w-16"}>Plats</Th>
               <Th>Email</Th>
@@ -44,8 +43,8 @@ export default async function DashboardQueuePage({
                   ["bg-primary-100"]: i === 0,
                 })}
               >
-                <Td className={"text-right"}>{i + 1}</Td>
-                <Td>{ticket.email}</Td>
+                <Td className={"text-center"}>{i + 1}</Td>
+                <Td className={"truncate"}>{ticket.email}</Td>
                 <Td>{format(ticket.createdAt, "yyyy-MM-dd HH:mm")}</Td>
               </Tr>
             ))}
