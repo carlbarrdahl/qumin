@@ -1,6 +1,8 @@
 import { Button } from "./_components/ui/button";
+import { metadata } from "./layout";
 
 export default function Home() {
+  console.log(metadata.metadataBase);
   return (
     <div className="mx-auto max-w-screen-xl flex-1">
       <div className="flex flex-1 flex-col space-y-4 px-8 py-6">
@@ -33,7 +35,7 @@ export default function Home() {
 
         <div className="rounded border">
           <iframe
-            src={`http://localhost:3000/queue/clsqhsjsd0000dbffdt0a2av9`}
+            src={`${metadata.metadataBase?.origin}/queue/clsqhsjsd0000dbffdt0a2av9`}
             width={"100%"}
             height={300}
             scrolling="no"
