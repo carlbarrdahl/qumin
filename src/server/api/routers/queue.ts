@@ -132,7 +132,7 @@ export const queueRouter = createTRPCRouter({
     .input(ZQueueCreateInputSchema)
     .mutation(async ({ ctx, input: { id, ...data } }) => {
       return id
-        ? ctx.db.queue.update({ where: { id }, data })
+        ? ctx.db.queue.update({ where: { id, userId: ctx.user.id }, data })
         : ctx.db.queue.create({ data: { ...data, userId: ctx.user.id } });
     }),
 });
