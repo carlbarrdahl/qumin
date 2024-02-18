@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Qumin",
   description: "Digital queueing simplified",
   applicationName: "Qumin",
+  referrer: "origin-when-cross-origin",
   keywords: ["Qumin", "Queues", "API", "Zapier", "Open-source", "Typescript"],
   creator: "Carl Barrdahl",
   formatDetection: {
