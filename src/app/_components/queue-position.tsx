@@ -7,5 +7,5 @@ export function QueuePosition({ ticketId = "" }) {
     { refetchInterval: 1000 },
   );
 
-  return <div>{position.data?.position}</div>;
+  return <div className="h-16">{position.data?.position}</div>;
 }

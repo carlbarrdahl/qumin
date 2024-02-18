@@ -121,10 +121,7 @@ export const queueRouter = createTRPCRouter({
         where: { email, queueId },
       });
       if (ticketExists) {
-        throw new TRPCError({
-          code: "BAD_REQUEST",
-          message: "Already in queue",
-        });
+        return ticketExists;
       }
       return ctx.db.ticket.create({
         data: { email, queue: { connect: { id: queueId } } },

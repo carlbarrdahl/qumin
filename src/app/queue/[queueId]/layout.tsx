@@ -15,7 +15,7 @@ export default async function QueueLayout({
 
   return (
     <div className="flex-1 px-2 py-8">
-      <div className="mx-auto max-w-screen-sm">
+      <div className="mx-auto min-h-96 max-w-screen-sm">
         <div className="mb-4">
           <h1 className="mb-3 text-3xl font-semibold tracking-wide">
             {queue.name}

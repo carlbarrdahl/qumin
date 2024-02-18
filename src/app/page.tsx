@@ -7,16 +7,17 @@ export default function Home() {
         <div className="py-8 sm:py-24">
           <h1
             className={
-              "mb-4 text-center text-4xl font-semibold leading-snug tracking-wide sm:text-6xl"
+              "text-center text-4xl leading-snug tracking-wide sm:text-6xl"
             }
           >
             <div>
-              <span className="text-primary-600">Qumin</span> är en mikroapp för
+              <span className="font-semibold text-primary-600">Qumin</span> är
+              en mikroapp för
             </div>
             <div>digital köer</div>
           </h1>
 
-          <p className="my-16 text-center text-xl sm:text-2xl">
+          <p className="py-4 text-center text-xl sm:py-16 sm:text-2xl">
             Skapa en kö, dela länken, och låt dina kunde slippa köandet.
           </p>
 
@@ -32,9 +33,9 @@ export default function Home() {
 
         <div className="rounded border">
           <iframe
-            src={`http://localhost:3000/queue/clsqhsjsd0000dbffdt0a2av9?embed=true`}
+            src={`http://localhost:3000/queue/clsqhsjsd0000dbffdt0a2av9`}
             width={"100%"}
-            height={280}
+            height={300}
             scrolling="no"
           />
         </div>

@@ -4,12 +4,12 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
-import { Inter } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { A } from "./_components/ui/a";
 
-const inter = Inter({
+const inter = Rubik({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -33,12 +33,9 @@ const repoURL = "https://github.com/carlbarrdahl/qumin";
 
 export default function RootLayout({
   children,
-  searchParams,
 }: {
   children: React.ReactNode;
-  searchParams: { embed: string };
 }) {
-  console.log({ searchParams });
   return (
     <ClerkProvider signInUrl="/sign-in">
       <html lang="en">
