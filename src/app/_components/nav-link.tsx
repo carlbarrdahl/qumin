@@ -15,7 +15,7 @@ export function NavLink({
     <Link
       href={href}
       className={clsx(
-        "flex items-center gap-2 rounded-lg px-4 py-2 text-gray-600 hover:bg-gray-100",
+        "flex flex-1 items-center gap-2 rounded-lg px-4 py-2 text-gray-600 hover:bg-gray-100 sm:flex-none",
         {
           ["bg-gray-100"]: isActive,
         },

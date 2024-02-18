@@ -49,11 +49,10 @@ export default async function DashboardQueuePage({
               </Tr>
             ))}
             <Tr>
-              <Td
-                colSpan={3}
-                className="text-center text-xs font-semibold uppercase tracking-widest text-gray-500"
-              >
-                Hanterade biljetter
+              <Td colSpan={3}>
+                <div className="text-center text-sm font-semibold uppercase tracking-widest text-gray-500">
+                  Hanterade biljetter
+                </div>
               </Td>
             </Tr>
             {done.map((ticket) => (

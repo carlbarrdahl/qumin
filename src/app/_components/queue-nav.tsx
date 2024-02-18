@@ -2,7 +2,7 @@ import { NavLink } from "./nav-link";
 
 export function QueueNavigation({ queueId = "" }) {
   return (
-    <nav className="flex gap-2">
+    <nav className="flex flex-wrap gap-2">
       <NavLink href={`/dashboard/${queueId}`} icon={null}>
         Biljetter
       </NavLink>
