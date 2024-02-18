@@ -1,4 +1,10 @@
-import { HomeIcon, ListPlusIcon, Rows3Icon } from "lucide-react";
+import {
+  HomeIcon,
+  ListPlusIcon,
+  PowerIcon,
+  Rows3Icon,
+  UserIcon,
+} from "lucide-react";
 import { NavLink } from "../_components/nav-link";
 import { api } from "~/trpc/server";
 
@@ -13,6 +19,10 @@ export default async function DashboardLayout({
         <nav className="space-y-1">
           <NavLink href="/dashboard" icon={<HomeIcon />}>
             Hem
+          </NavLink>
+
+          <NavLink href="/dashboard/settings" icon={<UserIcon />}>
+            Mitt konto
           </NavLink>
 
           <NavLink href="/dashboard/new" icon={<ListPlusIcon />}>
@@ -30,7 +40,7 @@ export default async function DashboardLayout({
 async function QueueList() {
   const queues = await api.queue.list.query();
   return (
-    <div>
+    <>
       <h3 className="mb-2 px-4 pt-8 text-xs font-semibold uppercase tracking-widest text-gray-500">
         Köer
       </h3>
@@ -46,6 +56,6 @@ async function QueueList() {
           </NavLink>
         ))}
       </nav>
-    </div>
+    </>
   );
 }

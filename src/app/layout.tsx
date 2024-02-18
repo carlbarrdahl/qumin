@@ -33,11 +33,14 @@ const repoURL = "https://github.com/carlbarrdahl/qumin";
 
 export default function RootLayout({
   children,
+  searchParams,
 }: {
   children: React.ReactNode;
+  searchParams: { embed: string };
 }) {
+  console.log({ searchParams });
   return (
-    <ClerkProvider>
+    <ClerkProvider signInUrl="/sign-in">
       <html lang="en">
         <body className={`font-sans ${inter.variable}`}>
           <main className="mx-auto flex h-[calc(100dvh)] flex-col">
@@ -46,7 +49,7 @@ export default function RootLayout({
               <div>
                 Qumin is free &{" "}
                 <A target="_blank" href={repoURL}>
-                  open-sourced
+                  open-source
                 </A>
               </div>
               <div>

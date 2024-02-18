@@ -29,6 +29,15 @@ export default function Home() {
             </Button>
           </div>
         </div>
+
+        <div className="rounded border">
+          <iframe
+            src={`http://localhost:3000/queue/clsqhsjsd0000dbffdt0a2av9?embed=true`}
+            width={"100%"}
+            height={280}
+            scrolling="no"
+          />
+        </div>
       </div>
     </div>
   );
