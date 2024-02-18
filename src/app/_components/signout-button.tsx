@@ -7,7 +7,7 @@ export function SignOutButton() {
   const router = useRouter();
   const { signOut } = useClerk();
   return (
-    <Button variant="danger" onClick={() => signOut(() => router.push("/"))}>
+    <Button variant="primary" onClick={() => signOut(() => router.push("/"))}>
       Logga ut
     </Button>
   );

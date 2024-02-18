@@ -4,12 +4,12 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
-import { Inter, Rubik } from "next/font/google";
+import { Fredoka } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { A } from "./_components/ui/a";
 
-const inter = Rubik({
+const inter = Fredoka({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -40,7 +40,7 @@ export default function RootLayout({
     <ClerkProvider signInUrl="/sign-in">
       <html lang="en">
         <body className={`font-sans ${inter.variable}`}>
-          <main className="mx-auto flex h-[calc(100dvh)] flex-col">
+          <main className="mx-auto flex h-[calc(100dvh)] flex-col text-lg">
             <TRPCReactProvider>{children}</TRPCReactProvider>
             <footer className="flex flex-col items-center bg-gray-100 py-8 text-xs text-gray-800">
               <div>

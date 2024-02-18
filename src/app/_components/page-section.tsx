@@ -11,7 +11,7 @@ export function PageSection({ title, description, action, children }: Props) {
     <section className="">
       <header className="mb-2 ">
         <div className="flex items-center justify-between">
-          <h1 className="pb-2 pt-2 text-xl font-semibold tracking-wide">
+          <h1 className="pb-2 pt-2 text-2xl font-semibold tracking-wide">
             {title}
           </h1>
           {action}

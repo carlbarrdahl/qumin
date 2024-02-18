@@ -6,8 +6,6 @@ import { api } from "~/trpc/server";
 import { notFound } from "next/navigation";
 import { fontFamily, loadGoogleFont } from "~/app/opengraph-image";
 
-// export const runtime = "edge";
-
 export const alt = metadata.title;
 export const size = { width: 1200, height: 630 };
 
