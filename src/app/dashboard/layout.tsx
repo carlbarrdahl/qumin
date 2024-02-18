@@ -15,7 +15,7 @@ export default async function DashboardLayout({
 }) {
   return (
     <div className="flex flex-1">
-      <aside className="w-48 border-r border-gray-200 p-4">
+      <aside className="w-14 border-r border-gray-200 sm:w-48 sm:p-4">
         <nav className="space-y-1">
           <NavLink href="/dashboard" icon={<HomeIcon />}>
             Hem

@@ -22,7 +22,7 @@ export default async function DashboardQueuePage({
   return (
     <PageSection
       title={queue.name}
-      description="Här visas alla biljetter och dess köordning. Tryck på nästa för att flytta kön framåt."
+      description="Här visas alla biljetter och dess köordning. Tryck på nästa för att flytta din kö framåt."
       action={<NextTicket queueId={queueId} />}
     >
       <QueueNavigation queueId={queueId} />
