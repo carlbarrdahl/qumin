@@ -1,8 +1,12 @@
-import { Button } from "./_components/ui/button";
+import { Button } from "~/app/_components/ui/button";
 import { metadata } from "./layout";
+import { getDictionary } from "~/get-dictionary";
+import { Locale } from "~/i18n-config";
 
-export default function Home() {
-  console.log(metadata.metadataBase);
+type Props = { params: { lang: Locale } };
+export default async function Home({ params: { lang } }: Props) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <div className="mx-auto max-w-screen-xl flex-1">
       <div className="flex flex-1 flex-col space-y-4 px-8 py-6">
@@ -13,22 +17,22 @@ export default function Home() {
             }
           >
             <div>
-              <span className="font-semibold text-primary-600">Qumin</span> är
-              en mikroapp för
+              <span className="font-semibold text-primary-600">Qumin</span>{" "}
+              {dictionary.landing.intro}
             </div>
-            <div>digital köer</div>
+            <div>{dictionary.landing.intro2}</div>
           </h1>
 
           <p className="py-4 text-center text-xl sm:py-16 sm:text-2xl">
-            Skapa en kö, dela länken, och låt dina kunde slippa köandet.
+            {dictionary.landing.subtitle}
           </p>
 
           <div className="flex justify-center gap-2">
             <Button as="a" href={"/dashboard/new"} size="lg" variant="primary">
-              Kom igång
+              {dictionary.landing.cta}
             </Button>
             <Button disabled size="lg">
-              Det är gratis
+              {dictionary.landing.cta_secondary}
             </Button>
           </div>
         </div>

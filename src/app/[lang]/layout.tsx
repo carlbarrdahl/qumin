@@ -7,12 +7,18 @@ import { Analytics } from "@vercel/analytics/react";
 import { Fredoka } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import { A } from "./_components/ui/a";
+import { A } from "~/app/_components/ui/a";
+import { i18n, type Locale } from "~/i18n-config";
+import { getDictionary } from "~/get-dictionary";
 
 const inter = Fredoka({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://qumin.app"),
@@ -31,14 +37,16 @@ export const metadata: Metadata = {
 
 const repoURL = "https://github.com/carlbarrdahl/qumin";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: Locale };
 }) {
   return (
     <ClerkProvider signInUrl="/sign-in">
-      <html lang="en">
+      <html lang={params.lang}>
         <body className={`font-sans ${inter.variable}`}>
           <main className="mx-auto flex h-[calc(100dvh)] flex-col text-lg">
             <TRPCReactProvider>{children}</TRPCReactProvider>

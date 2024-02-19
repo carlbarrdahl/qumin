@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { metadata } from "./layout";
+import { metadata } from "./[lang]/layout";
 
 export const runtime = "edge";
 

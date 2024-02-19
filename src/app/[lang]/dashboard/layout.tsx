@@ -1,11 +1,5 @@
-import {
-  HomeIcon,
-  ListPlusIcon,
-  PowerIcon,
-  Rows3Icon,
-  UserIcon,
-} from "lucide-react";
-import { NavLink } from "../_components/nav-link";
+import { HomeIcon, ListPlusIcon, Rows3Icon, UserIcon } from "lucide-react";
+import { NavLink } from "~/app/_components/nav-link";
 import { api } from "~/trpc/server";
 
 export default async function DashboardLayout({
