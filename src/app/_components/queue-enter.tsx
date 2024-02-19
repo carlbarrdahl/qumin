@@ -7,27 +7,19 @@ import { Form } from "./ui/form";
 import { Input } from "./ui/form/inputs";
 import { ZQueueEnterInputSchema } from "~/server/api/routers/queue/queue.schema";
 
-import { useLocalStorage } from "react-use";
 import { useRouter } from "next/navigation";
 
 export function QueueEnter({ queueId = "" }) {
   const router = useRouter();
-  const [stored, storeLocally] = useLocalStorage<{ email: string | undefined }>(
-    "customer",
-    { email: undefined },
-  );
 
   const enter = api.queue.enter.useMutation({
-    onSuccess: ({ id, email }) => {
-      storeLocally({ email });
-      router.push(`/queue/${queueId}/${id}`);
-    },
+    onSuccess: ({ id }) => router.push(`/queue/${queueId}/${id}`),
   });
   return (
     <Form
       className="space-y-2"
       schema={ZQueueEnterInputSchema}
-      defaultValues={{ ...stored, queueId }}
+      defaultValues={{ queueId }}
       onSubmit={(values) => {
         console.log(values);
         enter.mutate(values);
