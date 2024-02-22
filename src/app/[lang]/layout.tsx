@@ -9,7 +9,6 @@ import { Fredoka } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { A } from "~/app/_components/ui/a";
 import { type Locale } from "~/navigation";
-import { getBaseUrl } from "~/trpc/shared";
 
 const inter = Fredoka({
   subsets: ["latin"],

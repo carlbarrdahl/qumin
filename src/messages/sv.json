@@ -62,6 +62,7 @@
     }
   },
   "Queue": {
+    "place_in_queue": "Plats i kö",
     "enter_button": "Ställ i kö"
   }
 }

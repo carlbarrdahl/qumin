@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { tv } from "tailwind-variants";
+import { getTranslations } from "next-intl/server";
 import { QueuePosition } from "~/app/_components/queue-position";
 import { createComponent } from "~/app/_components/ui";
-
 import { api } from "~/trpc/server";
 
 type Props = { params: { queueId: string; ticketId: string } };
@@ -14,11 +14,12 @@ export default async function TicketPage({
   const ticket = await api.queue.ticket.query({ id: ticketId });
 
   if (!queue || !ticket) return notFound();
+  const t = await getTranslations("Queue");
 
   return (
     <div>
       <Stat>
-        <StatLabel>Plats i kö</StatLabel>
+        <StatLabel>{t("place_in_queue")}</StatLabel>
         <div className="flex items-end justify-center gap-2">
           <span className="text-7xl font-semibold">
             <QueuePosition ticketId={ticketId} />
