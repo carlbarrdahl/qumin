@@ -11,7 +11,8 @@ import { Fieldset } from "./ui/form/fieldset";
 import { Input, Textarea } from "./ui/form/inputs";
 import { Button } from "./ui/button";
 import { api } from "~/trpc/react";
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
+import { useTranslations } from "next-intl";
 
 export function QueueForm({
   defaultValues,
@@ -26,29 +27,25 @@ export function QueueForm({
       router.refresh();
     },
   });
+  const t = useTranslations("Dashboard.new_queue.form");
   return (
     <Form
       defaultValues={defaultValues}
       className="max-w-screen-md space-y-4"
       schema={ZQueueCreateInputSchema}
-      onSubmit={(values) => {
-        save.mutate(values);
-      }}
+      onSubmit={(values) => save.mutate(values)}
     >
-      <FormField
-        title="Namn"
-        description="Fyll i ett namn på din kö. Du kan ändra detta senare"
-      >
+      <FormField title={t("name.title")} description={t("name.description")}>
         <Fieldset name="name">
-          <Input placeholder="Min Kö" />
+          <Input placeholder={t("name.placeholder")} />
         </Fieldset>
       </FormField>
       <FormField
-        title="Beskrivning"
-        description="Beskrivning för din kö. Formattera med Markdown."
+        title={t("description.title")}
+        description={t("description.description")}
       >
         <Fieldset name="description">
-          <Textarea rows={6} placeholder="En digital kö" />
+          <Textarea rows={6} placeholder={t("description.placeholder")} />
         </Fieldset>
       </FormField>
       <div className="flex justify-end">
@@ -58,7 +55,7 @@ export function QueueForm({
           variant="primary"
           size="lg"
         >
-          Spara
+          {t("submit_button")}
         </Button>
       </div>
     </Form>

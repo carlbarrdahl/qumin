@@ -4,10 +4,15 @@ import { metadata } from "./layout";
 import { type Locale } from "~/navigation";
 
 type Props = { params: { lang: Locale } };
+
+const demoQueues = {
+  en: "clsxhevfl000014jom9zxeoj0",
+  sv: "clsrcjg2q0000c5zmhp3mqxyc",
+};
+
 export default function Home({ params: { lang } }: Props) {
   const t = useTranslations("LandingPage");
 
-  console.log(t);
   return (
     <div className="mx-auto max-w-screen-xl flex-1">
       <div className="flex flex-1 flex-col space-y-4 px-8 py-6">
@@ -40,9 +45,9 @@ export default function Home({ params: { lang } }: Props) {
 
         <div className="rounded border">
           <iframe
-            src={`${metadata.metadataBase?.origin}/queue/clsrcjg2q0000c5zmhp3mqxyc`}
+            src={`${metadata.metadataBase?.origin}/queue/${demoQueues[lang]}`}
             width={"100%"}
-            height={300}
+            height={400}
             scrolling="no"
           />
         </div>

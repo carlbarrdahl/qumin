@@ -1,3 +1,5 @@
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { QueueEnter } from "~/app/_components/queue-enter";
@@ -9,9 +11,12 @@ export default async function QueuePage({ params: { queueId } }: Props) {
 
   if (!queue) return notFound();
 
+  const messages = await getMessages();
   return (
-    <div className="mx-auto max-w-96">
-      <QueueEnter queueId={queueId} />
-    </div>
+    <NextIntlClientProvider messages={messages}>
+      <div className="mx-auto max-w-96">
+        <QueueEnter queueId={queueId} />
+      </div>
+    </NextIntlClientProvider>
   );
 }

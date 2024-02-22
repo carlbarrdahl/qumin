@@ -9,6 +9,7 @@ import { Fredoka } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { A } from "~/app/_components/ui/a";
 import { type Locale } from "~/navigation";
+import { getBaseUrl } from "~/trpc/shared";
 
 const inter = Fredoka({
   subsets: ["latin"],
@@ -16,8 +17,7 @@ const inter = Fredoka({
 });
 
 export const metadata: Metadata = {
-  // metadataBase: new URL("https://qumin.app"),
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(getBaseUrl()),
   title: "Qumin",
   description: "Digital queueing simplified",
   applicationName: "Qumin",
@@ -46,7 +46,7 @@ export default async function RootLayout({
         <body className={`font-sans ${inter.variable}`}>
           <main className="mx-auto flex h-[calc(100dvh)] flex-col text-lg">
             <TRPCReactProvider>{children}</TRPCReactProvider>
-            <footer className="flex flex-col items-center bg-gray-100 py-8 text-xs text-gray-800">
+            <footer className="mt-24 flex flex-col items-center bg-gray-100 py-8 text-xs text-gray-800">
               <div>
                 Qumin is free &{" "}
                 <A target="_blank" href={repoURL}>

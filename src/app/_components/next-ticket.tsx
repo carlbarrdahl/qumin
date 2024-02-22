@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { api } from "~/trpc/react";
 import { useRouter } from "next/navigation";
 
-export function NextTicket({ queueId = "" }) {
+export function NextTicket({ queueId = "", children = "" }) {
   const router = useRouter();
   const next = api.queue.next.useMutation({
     onSuccess: () => router.refresh(),
@@ -16,7 +16,7 @@ export function NextTicket({ queueId = "" }) {
       variant="primary"
       onClick={() => next.mutate({ queueId })}
     >
-      Nästa
+      {children}
     </Button>
   );
 }

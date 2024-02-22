@@ -1,4 +1,5 @@
 import { format } from "date-fns/format";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { NextTicket } from "~/app/_components/next-ticket";
 import { PageSection } from "~/app/_components/page-section";
@@ -17,22 +18,19 @@ export default async function DashboardQueuePage({
 
   const tickets = await api.queue.tickets.query({ queueId, status: "created" });
   const done = await api.queue.tickets.query({ queueId, status: "done" });
-
+  const t = await getTranslations("Dashboard.queue.tickets");
   return (
-    <PageSection
-      title={queue.name}
-      description="Här visas alla biljetter och dess köordning. Tryck på nästa för att flytta din kö framåt."
-    >
+    <PageSection title={queue.name} description={t("description")}>
       <div className="flex justify-end">
-        <NextTicket queueId={queueId} />
+        <NextTicket queueId={queueId}>{t("next_button")}</NextTicket>
       </div>
       <div className="w-full table-fixed rounded-lg border">
         <Table>
           <thead className="hidden sm:table-header-group">
             <Tr>
-              <Th className={"w-16"}>Plats</Th>
-              <Th>Email</Th>
-              <Th>Skapad</Th>
+              <Th className={"w-16"}>{t("table.position")}</Th>
+              <Th>{t("table.email")}</Th>
+              <Th>{t("table.created")}</Th>
             </Tr>
           </thead>
           <tbody>
@@ -51,7 +49,7 @@ export default async function DashboardQueuePage({
             <Tr>
               <Td colSpan={3}>
                 <div className="text-center text-sm font-semibold uppercase tracking-widest text-gray-500">
-                  Hanterade biljetter
+                  {t("table.handled_tickets")}
                 </div>
               </Td>
             </Tr>

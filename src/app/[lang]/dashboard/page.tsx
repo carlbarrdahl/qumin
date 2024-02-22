@@ -4,14 +4,16 @@ import { PageSection } from "~/app/_components/page-section";
 import { Button } from "~/app/_components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { QueueList } from "~/app/_components/queue-list";
+import { getTranslations } from "next-intl/server";
 
 export default async function DashboardPage() {
   const queues = await api.queue.list.query();
 
+  const t = await getTranslations("Dashboard");
   return (
     <PageSection
-      title="Alla köer"
-      description="Här visas alla köer ni skapat."
+      title={t("title")}
+      description={t("description")}
       action={
         <Button
           as={Link}
@@ -19,7 +21,7 @@ export default async function DashboardPage() {
           icon={PlusIcon}
           variant="primary"
         >
-          Skapa kö
+          {t("create_queue")}
         </Button>
       }
     >

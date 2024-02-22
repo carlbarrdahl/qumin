@@ -7,29 +7,25 @@ import { Form } from "./ui/form";
 import { Input } from "./ui/form/inputs";
 import { ZQueueEnterInputSchema } from "~/server/api/routers/queue/queue.schema";
 
-import { useLocalStorage } from "react-use";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export function QueueEnter({ queueId = "" }) {
   const router = useRouter();
-  const [stored, storeLocally] = useLocalStorage<{ email: string | undefined }>(
-    "customer",
-    { email: undefined },
-  );
 
   const enter = api.queue.enter.useMutation({
-    onSuccess: ({ id, email }) => {
-      storeLocally({ email });
+    onSuccess: ({ id }) => {
       router.push(`/queue/${queueId}/${id}`);
     },
   });
+
+  const t = useTranslations("Queue");
   return (
     <Form
       className="space-y-2"
       schema={ZQueueEnterInputSchema}
-      defaultValues={{ ...stored, queueId }}
+      defaultValues={{ queueId }}
       onSubmit={(values) => {
-        console.log(values);
         enter.mutate(values);
       }}
     >
@@ -46,7 +42,7 @@ export function QueueEnter({ queueId = "" }) {
           className="w-full md:w-auto"
           variant="primary"
         >
-          Ställ i kö
+          {t("enter_button")}
         </Button>
       </div>
 
