@@ -37,7 +37,15 @@ export const queueRouter = createTRPCRouter({
   ticket: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input: { id } }) => {
-      return ctx.db.ticket.findFirst({ where: { id } });
+      return ctx.db.ticket.findFirst({
+        where: { id },
+        select: {
+          id: true,
+          createdAt: true,
+          updatedAt: true,
+          status: true,
+        },
+      });
     }),
 
   position: publicProcedure
@@ -49,6 +57,7 @@ export const queueRouter = createTRPCRouter({
       }
       const count = await ctx.db.ticket.findMany({
         where: { queueId: ticket?.queueId, status: { not: "done" } },
+        select: { id: true },
         orderBy: { createdAt: "desc" },
       });
 

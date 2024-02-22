@@ -14,9 +14,7 @@ export function QueueEnter({ queueId = "" }) {
   const router = useRouter();
 
   const enter = api.queue.enter.useMutation({
-    onSuccess: ({ id }) => {
-      router.push(`/queue/${queueId}/${id}`);
-    },
+    onSuccess: ({ id }) => router.push(`/queue/${queueId}/${id}`),
   });
 
   const t = useTranslations("Queue");
