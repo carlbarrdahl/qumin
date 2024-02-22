@@ -10,8 +10,7 @@ const intlMiddleware = createMiddleware({
 
 export default authMiddleware({
   beforeAuth: (req) => (req.url.includes("api") ? null : intlMiddleware(req)),
-  publicRoutes: ["/", "/sign-in", "/queue(.*)"],
-  ignoredRoutes: ["/opengraph-image"],
+  publicRoutes: (req) => !req.url.includes("/dashboard"),
 });
 
 export const config = {
