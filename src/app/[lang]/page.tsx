@@ -1,12 +1,13 @@
+import { useTranslations } from "next-intl";
 import { Button } from "~/app/_components/ui/button";
 import { metadata } from "./layout";
-import { getDictionary } from "~/get-dictionary";
-import { Locale } from "~/i18n-config";
+import { type Locale } from "~/navigation";
 
 type Props = { params: { lang: Locale } };
-export default async function Home({ params: { lang } }: Props) {
-  const dictionary = await getDictionary(lang);
+export default function Home({ params: { lang } }: Props) {
+  const t = useTranslations("LandingPage");
 
+  console.log(t);
   return (
     <div className="mx-auto max-w-screen-xl flex-1">
       <div className="flex flex-1 flex-col space-y-4 px-8 py-6">
@@ -18,21 +19,21 @@ export default async function Home({ params: { lang } }: Props) {
           >
             <div>
               <span className="font-semibold text-primary-600">Qumin</span>{" "}
-              {dictionary.landing.intro}
+              {t("intro")}
             </div>
-            <div>{dictionary.landing.intro2}</div>
+            <div>{t("intro2")}</div>
           </h1>
 
           <p className="py-4 text-center text-xl sm:py-16 sm:text-2xl">
-            {dictionary.landing.subtitle}
+            {t("subtitle")}
           </p>
 
           <div className="flex justify-center gap-2">
             <Button as="a" href={"/dashboard/new"} size="lg" variant="primary">
-              {dictionary.landing.cta}
+              {t("cta")}
             </Button>
             <Button disabled size="lg">
-              {dictionary.landing.cta_secondary}
+              {t("cta_secondary")}
             </Button>
           </div>
         </div>

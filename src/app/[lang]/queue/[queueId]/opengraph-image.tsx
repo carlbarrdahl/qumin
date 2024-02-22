@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
 import { QRCodeSVG } from "qrcode.react";
 import { headers } from "next/headers";
-import { metadata } from "~/app/layout";
 import { api } from "~/trpc/server";
 import { notFound } from "next/navigation";
 import { fontFamily, loadGoogleFont } from "~/app/opengraph-image";
+import { metadata } from "../../layout";
 
 export const alt = metadata.title;
 export const size = { width: 1200, height: 630 };
