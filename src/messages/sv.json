@@ -1,0 +1,67 @@
+{
+  "LandingPage": {
+    "intro": "är en mikroapp för",
+    "intro2": "digitala köer",
+    "subtitle": "Skapa en kö, dela länken, och låt dina kunde slippa köandet.",
+    "cta": "Kom igång",
+    "cta_secondary": "Det är gratis"
+  },
+  "Dashboard": {
+    "title": "Alla köer",
+    "description": "Här visas alla köer ni skapat.",
+    "create_queue": "Skapa kö",
+    "sidebar": {
+      "home": "Hem",
+      "account": "Mitt konto",
+      "new_queue": "Ny kö",
+      "queues": "Queues"
+    },
+    "settings": {
+      "title": "Mitt konto",
+      "description": "",
+      "signed_in_as": "Inloggad som",
+      "sign_out": "Logga ut"
+    },
+    "new_queue": {
+      "title": "Skapa en ny kö",
+      "description": "Skapa en ny kö för era kunder.",
+      "form": {
+        "name": {
+          "title": "Namn",
+          "description": "Fyll i ett namn på din kö. Du kan ändra detta senare",
+          "placeholder": "Min Kö"
+        },
+        "description": {
+          "title": "Beskrivning",
+          "description": "Beskrivning för din kö. Formattera med Markdown.",
+          "placeholder": "En digital kö"
+        },
+        "submit_button": "Spara"
+      }
+    },
+    "queue": {
+      "menu": {
+        "tickets": "Biljetter",
+        "settings": "Inställningar"
+      },
+      "tickets": {
+        "title": "",
+        "description": "Här visas alla biljetter och dess köordning. Tryck på nästa för att flytta din kö framåt.",
+        "next_button": "Nästa",
+        "table": {
+          "position": "Plats",
+          "email": "Email",
+          "created": "Skapad",
+          "handled_tickets": "Hanterade biljetter"
+        }
+      },
+      "settings": {
+        "title": "Redigera kö",
+        "description": ""
+      }
+    }
+  },
+  "Queue": {
+    "enter_button": "Ställ i kö"
+  }
+}

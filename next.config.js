@@ -4,7 +4,9 @@
  */
 await import("./src/env.js");
 
+import withNextIntl from "next-intl/plugin";
+
 /** @type {import("next").NextConfig} */
 const config = {};
 
-export default config;
+export default withNextIntl()(config);

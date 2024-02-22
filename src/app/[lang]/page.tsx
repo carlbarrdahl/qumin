@@ -1,8 +1,18 @@
-import { Button } from "./_components/ui/button";
+import { useTranslations } from "next-intl";
+import { Button } from "~/app/_components/ui/button";
 import { metadata } from "./layout";
+import { type Locale } from "~/navigation";
 
-export default function Home() {
-  console.log(metadata.metadataBase);
+type Props = { params: { lang: Locale } };
+
+const demoQueues = {
+  en: "clsxhevfl000014jom9zxeoj0",
+  sv: "clsrcjg2q0000c5zmhp3mqxyc",
+};
+
+export default function Home({ params: { lang } }: Props) {
+  const t = useTranslations("LandingPage");
+
   return (
     <div className="mx-auto max-w-screen-xl flex-1">
       <div className="flex flex-1 flex-col space-y-4 px-8 py-6">
@@ -13,31 +23,31 @@ export default function Home() {
             }
           >
             <div>
-              <span className="font-semibold text-primary-600">Qumin</span> är
-              en mikroapp för
+              <span className="font-semibold text-primary-600">Qumin</span>{" "}
+              {t("intro")}
             </div>
-            <div>digital köer</div>
+            <div>{t("intro2")}</div>
           </h1>
 
           <p className="py-4 text-center text-xl sm:py-16 sm:text-2xl">
-            Skapa en kö, dela länken, och låt dina kunde slippa köandet.
+            {t("subtitle")}
           </p>
 
           <div className="flex justify-center gap-2">
             <Button as="a" href={"/dashboard/new"} size="lg" variant="primary">
-              Kom igång
+              {t("cta")}
             </Button>
             <Button disabled size="lg">
-              Det är gratis
+              {t("cta_secondary")}
             </Button>
           </div>
         </div>
 
         <div className="rounded border">
           <iframe
-            src={`${metadata.metadataBase?.origin}/queue/clsrcjg2q0000c5zmhp3mqxyc`}
+            src={`${metadata.metadataBase?.origin}/queue/${demoQueues[lang]}`}
             width={"100%"}
-            height={300}
+            height={400}
             scrolling="no"
           />
         </div>

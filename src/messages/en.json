@@ -1,0 +1,67 @@
+{
+  "LandingPage": {
+    "intro": "is a microapp for",
+    "intro2": "digital queues",
+    "subtitle": "Create a queue, share the link, and let your customers skip the line.",
+    "cta": "Get started",
+    "cta_secondary": "It's free"
+  },
+  "Dashboard": {
+    "title": "Your queues",
+    "description": "Here are all your created queues",
+    "create_queue": "New queue",
+    "sidebar": {
+      "home": "Home",
+      "account": "My account",
+      "new_queue": "New queue",
+      "queues": "Queues"
+    },
+    "settings": {
+      "title": "My account",
+      "description": "",
+      "signed_in_as": "Signed in as",
+      "sign_out": "Sign out"
+    },
+    "new_queue": {
+      "title": "Create a new queue",
+      "description": "Create a new queue for your customers.",
+      "form": {
+        "name": {
+          "title": "Name",
+          "description": "Give your queue a name. You can change this later.",
+          "placeholder": "My Queue"
+        },
+        "description": {
+          "title": "Description",
+          "description": "Describe your queue. Markdown formatting is supported.",
+          "placeholder": "A digital queue"
+        },
+        "submit_button": "Save"
+      }
+    },
+    "queue": {
+      "menu": {
+        "tickets": "Tickets",
+        "settings": "Settings"
+      },
+      "tickets": {
+        "title": "",
+        "description": "Here are all the tickets and their queue position. Press Next to push your queue forward.",
+        "next_button": "Next",
+        "table": {
+          "position": "Position",
+          "email": "Email",
+          "created": "Created at",
+          "handled_tickets": "Handled tickets"
+        }
+      },
+      "settings": {
+        "title": "Edit queue",
+        "description": ""
+      }
+    }
+  },
+  "Queue": {
+    "enter_button": "Enter queue"
+  }
+}

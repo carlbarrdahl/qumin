@@ -8,6 +8,7 @@ import { Input } from "./ui/form/inputs";
 import { ZQueueEnterInputSchema } from "~/server/api/routers/queue/queue.schema";
 
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export function QueueEnter({ queueId = "" }) {
   const router = useRouter();
@@ -15,13 +16,14 @@ export function QueueEnter({ queueId = "" }) {
   const enter = api.queue.enter.useMutation({
     onSuccess: ({ id }) => router.push(`/queue/${queueId}/${id}`),
   });
+
+  const t = useTranslations("Queue");
   return (
     <Form
       className="space-y-2"
       schema={ZQueueEnterInputSchema}
       defaultValues={{ queueId }}
       onSubmit={(values) => {
-        console.log(values);
         enter.mutate(values);
       }}
     >
@@ -38,7 +40,7 @@ export function QueueEnter({ queueId = "" }) {
           className="w-full md:w-auto"
           variant="primary"
         >
-          Ställ i kö
+          {t("enter_button")}
         </Button>
       </div>
 
