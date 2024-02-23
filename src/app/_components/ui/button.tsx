@@ -15,7 +15,7 @@ const ButtonComponent = createComponent(
     base: "inline-flex transition-200 items-center justify-center whitespace-nowrap rounded-md text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
     variants: {
       variant: {
-        primary: "bg-primary-600 text-white hover:bg-primary-700 ",
+        primary: "bg-amber-300 text-amber-950 hover:bg-amber-200 ",
         danger: "bg-red-600 text-red-100 hover:bg-red-600/90 ",
         default: "bg-gray-100 hover:bg-gray-200/80 text-gray-900",
         ghost: "hover:bg-gray-200/80 text-gray-900",
@@ -23,7 +23,7 @@ const ButtonComponent = createComponent(
       size: {
         icon: "p-3",
         md: "px-4 py-3",
-        lg: "px-4 py-3 text-lg font-semibold",
+        lg: "px-4 py-3 text-xl",
       },
     },
     defaultVariants: {

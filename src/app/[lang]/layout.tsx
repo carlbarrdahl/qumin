@@ -22,7 +22,7 @@ export async function generateMetadata() {
   const city = headers().get("x-vercel-ip-city");
   return {
     metadataBase: new URL(origin),
-    title: t("title") + city ? ` in ${city}` : "",
+    title: `${t("title")} ${city ? `in ${city}` : ""}`,
     description: t("description"),
     applicationName: "Qumin",
     referrer: "origin-when-cross-origin",
