@@ -45,6 +45,7 @@ export default function Home({ params: { lang } }: Props) {
 
         <div className="rounded border">
           <iframe
+            title="Demo"
             src={`${metadata.metadataBase?.origin}/queue/${demoQueues[lang]}`}
             width={"100%"}
             height={400}
