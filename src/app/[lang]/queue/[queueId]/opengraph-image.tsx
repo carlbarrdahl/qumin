@@ -4,9 +4,9 @@ import { headers } from "next/headers";
 import { api } from "~/trpc/server";
 import { notFound } from "next/navigation";
 import { fontFamily, loadGoogleFont } from "~/app/opengraph-image";
-import { metadata } from "../../layout";
 
-export const alt = metadata.title;
+const title = "Qumin";
+export const alt = title;
 export const size = { width: 1200, height: 630 };
 
 export const contentType = "image/png";
@@ -25,7 +25,7 @@ export default async function Image(props: { params: { queueId: string } }) {
     (
       <div tw="bg-orange-600 w-full h-full flex flex-col justify-center items-center">
         <div tw="text-4xl font-bold text-orange-300 absolute top-8 left-8">
-          {metadata.title as string}
+          {title}
         </div>
         <div tw="flex flex-col">
           <div tw="text-[64px] mb-2 text-white">{queue.name}</div>

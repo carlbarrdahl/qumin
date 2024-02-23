@@ -1,44 +1,47 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "~/styles/globals.css";
 
-import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Fredoka } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { A } from "~/app/_components/ui/a";
-import { type Locale } from "~/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { origin } from "~/config";
+import { headers } from "next/headers";
 
 const inter = Fredoka({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://qumin.app"),
-  title: "Qumin",
-  description: "Digital queueing simplified",
-  applicationName: "Qumin",
-  referrer: "origin-when-cross-origin",
-  keywords: ["Qumin", "Queues", "API", "Zapier", "Open-source", "Typescript"],
-  creator: "Carl Barrdahl",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-};
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const city = headers().get("x-vercel-ip-city");
+  return {
+    metadataBase: new URL(origin),
+    title: t("title") + city ? ` in ${city}` : "",
+    description: t("description"),
+    applicationName: "Qumin",
+    referrer: "origin-when-cross-origin",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+  };
+}
 
 const repoURL = "https://github.com/carlbarrdahl/qumin";
 
 export default async function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: Locale };
 }) {
+  const locale = await getLocale();
   return (
     <ClerkProvider signInUrl="/sign-in">
       <html lang={locale}>

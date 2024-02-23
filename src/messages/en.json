@@ -1,4 +1,8 @@
 {
+  "Metadata": {
+    "title": "Qumin - digital queueing simplified",
+    "description": "Streamline your customer management with Qumin. Our virtual queue system efficiently manages client flow for your business, reducing wait times and improving service."
+  },
   "LandingPage": {
     "intro": "is a microapp for",
     "intro2": "digital queues",

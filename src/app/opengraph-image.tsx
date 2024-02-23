@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
-import { metadata } from "./[lang]/layout";
 
 export const runtime = "edge";
 
-export const alt = metadata.title;
+const title = "Qumin";
+const description = "Digital queuing simplified";
+export const alt = title;
 export const size = { width: 1200, height: 630 };
 
 export const contentType = "image/png";
@@ -14,10 +15,8 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div tw="bg-orange-600 w-full h-full flex flex-col justify-center items-center">
-        <div tw="text-[140px] font-bold text-orange-100">
-          {metadata.title as string}
-        </div>
-        <div tw="text-4xl text-orange-200">{metadata.description!}</div>
+        <div tw="text-[140px] font-bold text-orange-100">{title as string}</div>
+        <div tw="text-4xl text-orange-200">{description}</div>
       </div>
     ),
     {
