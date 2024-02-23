@@ -19,10 +19,9 @@ const inter = Fredoka({
 export async function generateMetadata() {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const city = headers().get("x-vercel-ip-city");
   return {
     metadataBase: new URL(origin),
-    title: `${t("title")} ${city ? `in ${city}` : ""}`,
+    title: t("title"),
     description: t("description"),
     applicationName: "Qumin",
     referrer: "origin-when-cross-origin",
